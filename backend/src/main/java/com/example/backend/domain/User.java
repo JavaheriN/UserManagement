@@ -13,7 +13,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
 
-@Entity
+@Entity(name = "users")
 @NoArgsConstructor
 @Getter
 @Setter

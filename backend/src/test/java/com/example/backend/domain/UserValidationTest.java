@@ -50,7 +50,7 @@ public class UserValidationTest {
         user.setLastName("Brandan");
 
         Set<ConstraintViolation<User>> violations = validator.validate(user);
-        
+
         Assert.assertFalse(violations.isEmpty());
         Assert.assertTrue(
                 violations.stream()
