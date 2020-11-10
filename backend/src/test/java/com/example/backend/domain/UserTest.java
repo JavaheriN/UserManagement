@@ -24,21 +24,22 @@ public class UserTest {
     }
 
     @Test
-    public void ageIsSetTest() {
-        LocalDate birthday =LocalDate.of(1996, 8, 14);
+    public void setAgeOnGetAgeWhenBirthdayIsSet() {
+        LocalDate birthday = LocalDate.of(1996, 8, 14);
         user.setBirthday(birthday);
 
-        Assert.assertEquals( Period.between(birthday, LocalDate.now()).getYears(),user.getAge());
+        Assert.assertEquals(Period.between(birthday, LocalDate.now()).getYears(), user.getAge());
     }
 
     @Test
-    public void fullNameIsSetTest() {
+    public void setFullNameOnGetFullNameWhenFirstNameAndLastNameAreSets() {
 
+        user.setBirthday(LocalDate.of(1996, 8, 14));
         user.setFirstName("James");
         user.setLastName("Brandan");
 
 
-        Assert.assertEquals(user.getFirstName() + " " + user.getLastName(),user.getFullName());
+        Assert.assertEquals(user.getFirstName() + " " + user.getLastName(), user.getFullName());
     }
 
 }

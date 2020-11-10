@@ -19,9 +19,6 @@ public class UserService {
     public User getUserById(int id) {
         return userRepository.findById(id).get();
     }
-    public Page<User> getUsers(Pageable pageable){
-        return userRepository.findAll(pageable);
-    }
     public List<User> getUsers(){
         return userRepository.findAll();
     }
