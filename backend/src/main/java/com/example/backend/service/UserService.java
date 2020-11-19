@@ -3,8 +3,6 @@ package com.example.backend.service;
 import com.example.backend.domain.User;
 import com.example.backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,16 +17,21 @@ public class UserService {
     public User getUserById(int id) {
         return userRepository.findById(id).get();
     }
-    public List<User> getUsers(){
+
+    public List<User> getUsers() {
         return userRepository.findAll();
     }
-    public void createUser(User user){
+
+    public void createUser(User user) {
         userRepository.save(user);
     }
-    public void updateUser(int id,User user){
+
+    public void updateUser(int id, User user) {
+        user.setId(id);
         userRepository.save(user);
     }
-    public void deleteUserById(int id){
+
+    public void deleteUserById(int id) {
         userRepository.deleteById(id);
     }
 }

@@ -31,21 +31,7 @@ public class User implements Serializable {
     private String emailAddress;
     private String address;
     private String phoneNumber;
-    @NotNull
-    private LocalDate birthday;
     private Gender gender;
-    @Transient
-    @Setter(AccessLevel.NONE)
-    @Getter(AccessLevel.NONE)
-    private int age;
-
-    public int getAge() {
-
-        Period period = Period.between(birthday, LocalDate.now());
-        age = period.getYears();
-        return age;
-
-    }
 
     public String getFullName() {
         return firstName + " " + lastName;

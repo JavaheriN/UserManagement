@@ -8,9 +8,6 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.time.LocalDate;
-import java.time.Period;
-
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = BackendApplication.class)
 public class UserTest {
@@ -23,18 +20,10 @@ public class UserTest {
         user.setId(1);
     }
 
-    @Test
-    public void setAgeOnGetAgeWhenBirthdayIsSet() {
-        LocalDate birthday = LocalDate.of(1996, 8, 14);
-        user.setBirthday(birthday);
-
-        Assert.assertEquals(Period.between(birthday, LocalDate.now()).getYears(), user.getAge());
-    }
 
     @Test
     public void setFullNameOnGetFullNameWhenFirstNameAndLastNameAreSets() {
 
-        user.setBirthday(LocalDate.of(1996, 8, 14));
         user.setFirstName("James");
         user.setLastName("Brandan");
 

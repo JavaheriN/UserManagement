@@ -1,0 +1,57 @@
+<div class="container">
+  <h1>Create New User</h1>
+
+
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+
+    <div class="form-group">
+      <label for="firstName">First Name:</label>
+      <input formControlName="firstName" id="firstName" type="text" class="form-control">
+      <div *ngIf="formControl.firstName.touched && formControl.firstName.invalid" class="alert alert-danger">
+        <div *ngIf="formControl.firstName.errors.required">First Name is required.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name:</label>
+      <input formControlName="lastName" id="lastName" type="text" class="form-control">
+      <div *ngIf="formControl.lastName.touched && formControl.lastName.invalid" class="alert alert-danger">
+        <div *ngIf="formControl.lastName.errors.required">Last Name is required.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="gender">Gender:</label>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="gender" name="gender" [value]="Gender.MALE"
+               [checked]="form.controls['gender'].value === Gender.MALE">
+        <label>Male</label>
+      </div>
+
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" name="gender" [value]="Gender.FEMALE"
+               [checked]="form.controls['gender'].value === Gender.FEMALE">
+        <label>Female</label>
+      </div>
+
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number:</label>
+      <input formControlName="phoneNumber" id="phoneNumber" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="emailAddress">Email Address:</label>
+      <input formControlName="emailAddress" id="emailAddress" type="email" class="form-control">
+      <div *ngIf="formControl.emailAddress.touched && formControl.emailAddress.invalid" class="alert alert-danger">
+        <div *ngIf="formControl.emailAddress.errors.email">Email Address is invalid.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="address">Address</label>
+      <textarea formControlName="address" id="address" type="text" class="form-control">
+            </textarea>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+  </form>
+</div>

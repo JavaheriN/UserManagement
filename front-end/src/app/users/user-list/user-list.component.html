@@ -1,0 +1,34 @@
+<div class="container">
+  <h1>User List</h1>
+
+  <a href="#" routerLink="/createUser" class="btn btn-success m-1 float-right">Create New User</a>
+
+  <table class="table table-bordered">
+    <tr>
+
+      <th>Name</th>
+      <th>Phone Number</th>
+      <th>Email</th>
+      <th>Address</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let user of users">
+
+      <td>{{ user.fullName }}</td>
+      <td>{{ user.phoneNumber }}</td>
+      <td>{{ user.emailAddress }}</td>
+      <td>{{ (user.address.length > 30 ? (user.address | slice:0:30) + '...' : (user.address)) }}</td>
+      <td>
+        <div>
+          <a href="#" [routerLink]="['/users/', user.id]" class="btn btn-warning p-1 m-1">
+            <mat-icon aria-hidden="false" aria-label="Edit">edit</mat-icon>
+          </a>
+          <button type="button" (click)="deleteUser(user.id)" class="btn btn-danger p-1 m-1">
+            <mat-icon aria-hidden="false" aria-label="Delete">delete</mat-icon>
+          </button>
+        </div>
+
+      </td>
+    </tr>
+  </table>
+</div>

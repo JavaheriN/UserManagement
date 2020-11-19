@@ -25,7 +25,6 @@ public class UserServiceTest {
 
         User user = new User();
         user.setId(1);
-        user.setBirthday(LocalDate.of(1996, 8, 14));
         user.setFirstName("James");
         user.setLastName("Brandan");
         userService.createUser(user);
@@ -42,7 +41,6 @@ public class UserServiceTest {
     public void createUser_Name_IsNotSet_Fail() {
         User user = new User();
         user.setId(1);
-        user.setBirthday(LocalDate.of(1996, 8, 14));
         user.setLastName("Brandan");
         userService.createUser(user);
 
@@ -57,7 +55,6 @@ public class UserServiceTest {
 
         User user = new User();
         user.setId(1);
-        user.setBirthday(LocalDate.of(1996, 8, 14));
         user.setFirstName("James");
         user.setLastName("Brandan");
         userService.createUser(user);

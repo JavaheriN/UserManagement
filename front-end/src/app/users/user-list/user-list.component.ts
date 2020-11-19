@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../user';
 import {UserService} from '../user.service';
+import {NotificationService} from '../../notification.service';
+import {NotificationType} from '../../notification-message';
 
 @Component({
   selector: 'app-user-list',
@@ -11,7 +13,7 @@ export class UserListComponent implements OnInit {
 
   users: User[] = [];
 
-  constructor(public userService: UserService) {
+  constructor(public userService: UserService, private notificationService: NotificationService) {
   }
 
   ngOnInit(): void {
@@ -24,7 +26,10 @@ export class UserListComponent implements OnInit {
         this.users = data;
       },
       error => {
-        // console.log(error);
+        this.notificationService.sendMessage({
+          message: error,
+          type: NotificationType.error
+        });
       });
   }
 
@@ -33,7 +38,11 @@ export class UserListComponent implements OnInit {
   deleteUser(id) {
     this.userService.delete(id).subscribe(res => {
       this.users = this.users.filter(item => item.id !== id);
-      // console.log('Post deleted successfully!');
+      this.notificationService.sendMessage({
+        message: 'User deleted successfully!',
+        type: NotificationType.success
+      });
+
     });
   }
 
