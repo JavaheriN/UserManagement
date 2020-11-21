@@ -13,12 +13,16 @@
     <artifactId>frontend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>frontend</name>
+
+
     <build>
+        <finalName>client</finalName>
         <plugins>
             <plugin>
                 <groupId>com.github.eirslett</groupId>
                 <artifactId>frontend-maven-plugin</artifactId>
                 <version>1.6</version>
+
                 <configuration>
                     <workingDirectory>src/main/angular</workingDirectory>
                     <nodeVersion>v10.16.3</nodeVersion>
@@ -31,17 +35,20 @@
                             <goal>install-node-and-npm</goal>
                         </goals>
                     </execution>
+
                     <execution>
                         <id>npm install</id>
                         <goals>
                             <goal>npm</goal>
                         </goals>
                     </execution>
+
                     <execution>
                         <id>npm run build</id>
                         <goals>
                             <goal>npm</goal>
                         </goals>
+
                         <configuration>
                             <arguments>run build</arguments>
                         </configuration>
@@ -51,10 +58,11 @@
         </plugins>
         <resources>
             <resource>
-                <directory>target/frontend</directory>
+                <directory>target/client</directory>
                 <targetPath>static</targetPath>
             </resource>
         </resources>
     </build>
+
 
 </project>
