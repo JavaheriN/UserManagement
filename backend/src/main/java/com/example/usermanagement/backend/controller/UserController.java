@@ -1,7 +1,7 @@
-package com.example.usermanagement.backend.backend.controller;
+package com.example.usermanagement.backend.controller;
 
-import com.example.usermanagement.backend.backend.domain.User;
-import com.example.usermanagement.backend.backend.service.UserService;
+import com.example.usermanagement.backend.domain.User;
+import com.example.usermanagement.backend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

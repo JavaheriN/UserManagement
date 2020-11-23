@@ -1,6 +1,6 @@
-package com.example.usermanagement.backend.backend.domain;
+package com.example.usermanagement.backend.domain;
 
-import com.example.usermanagement.backend.backend.BackendApplication;
+import com.example.usermanagement.backend.BackendApplication;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

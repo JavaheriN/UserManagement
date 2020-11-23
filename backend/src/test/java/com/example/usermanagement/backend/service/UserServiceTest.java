@@ -1,6 +1,6 @@
-package com.example.usermanagement.backend.backend.service;
+package com.example.usermanagement.backend.service;
 
-import com.example.usermanagement.backend.backend.domain.User;
+import com.example.usermanagement.backend.domain.User;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,7 +13,7 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-@ComponentScan(basePackages = "com.example.usermanagement.backend.backend")
+@ComponentScan(basePackages = "com.example.usermanagement.backend")
 public class UserServiceTest {
 
     @Autowired
@@ -31,8 +31,8 @@ public class UserServiceTest {
         List<User> dbUsers = userService.getUsers();
 
         Assert.assertNotNull(dbUsers);
-        Assert.assertTrue(dbUsers.size() == 1);
-        Assert.assertTrue(dbUsers.stream().filter(x -> x.getFirstName() == user.getFirstName()).count() == 1);
+        Assert.assertEquals(1, dbUsers.size());
+        Assert.assertEquals(1, dbUsers.stream().filter(x -> x.getFirstName().equals(user.getFirstName())).count());
 
     }
 
@@ -45,7 +45,7 @@ public class UserServiceTest {
 
         List<User> dbUsers = userService.getUsers();
 
-        Assert.assertTrue(dbUsers.size() == 0);
+        Assert.assertEquals(0, dbUsers.size());
 
     }
 

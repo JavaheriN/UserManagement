@@ -1,7 +1,7 @@
-package com.example.usermanagement.backend.backend.service;
+package com.example.usermanagement.backend.service;
 
-import com.example.usermanagement.backend.backend.domain.User;
-import com.example.usermanagement.backend.backend.repository.UserRepository;
+import com.example.usermanagement.backend.domain.User;
+import com.example.usermanagement.backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

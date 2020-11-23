@@ -1,4 +1,4 @@
-package com.example.usermanagement.backend.backend;
+package com.example.usermanagement.backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

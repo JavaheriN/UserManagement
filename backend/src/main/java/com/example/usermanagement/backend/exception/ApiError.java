@@ -1,4 +1,4 @@
-package com.example.usermanagement.backend.backend.exception;
+package com.example.usermanagement.backend.exception;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package com.example.usermanagement.backend.backend.domain;
+package com.example.usermanagement.backend.domain;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

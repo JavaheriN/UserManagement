@@ -1,4 +1,4 @@
-package com.example.usermanagement.backend.backend;
+package com.example.usermanagement.backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package com.example.usermanagement.backend.backend.exception;
+package com.example.usermanagement.backend.exception;
 
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
