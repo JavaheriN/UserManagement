@@ -1,6 +1,5 @@
-package com.example.backend.domain;
+package com.example.usermanagement.backend.backend.domain;
 
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,8 +9,6 @@ import javax.validation.constraints.NotNull;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.time.Period;
 
 @Entity(name = "users")
 @NoArgsConstructor

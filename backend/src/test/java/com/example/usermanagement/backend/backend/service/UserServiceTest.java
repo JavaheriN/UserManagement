@@ -1,6 +1,6 @@
-package com.example.backend.service;
+package com.example.usermanagement.backend.backend.service;
 
-import com.example.backend.domain.User;
+import com.example.usermanagement.backend.backend.domain.User;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,12 +9,11 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-@ComponentScan(basePackages = "com.example.backend")
+@ComponentScan(basePackages = "com.example.usermanagement.backend.backend")
 public class UserServiceTest {
 
     @Autowired

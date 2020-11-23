@@ -1,6 +1,6 @@
-package com.example.backend.domain;
+package com.example.usermanagement.backend.backend.domain;
 
-import com.example.backend.BackendApplication;
+import com.example.usermanagement.backend.backend.BackendApplication;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,7 +12,6 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
-import java.time.LocalDate;
 import java.util.Set;
 
 @RunWith(SpringRunner.class)
