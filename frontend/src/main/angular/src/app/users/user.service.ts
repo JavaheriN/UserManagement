@@ -5,7 +5,7 @@ import {User} from './user';
 import {catchError} from 'rxjs/operators';
 
 
-const baseURL = 'http://localhost:8080';
+const baseURL = 'http://localhost:8080/api/v1/users/';
 
 @Injectable({
   providedIn: 'root'
@@ -22,28 +22,28 @@ export class UserService {
 
   getAll(): Observable<User[]> {
 
-    return this.httpClient.get<User[]>(baseURL + '/users/')
+    return this.httpClient.get<User[]>(baseURL )
       .pipe(
         catchError(this.errorHandler)
       );
   }
 
   create(user): Observable<User> {
-    return this.httpClient.post<User>(baseURL + '/users/', JSON.stringify(user), this.httpOptions)
+    return this.httpClient.post<User>(baseURL , JSON.stringify(user), this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       );
   }
 
   find(id): Observable<User> {
-    return this.httpClient.get<User>(baseURL + '/users/' + id)
+    return this.httpClient.get<User>(baseURL  + id)
       .pipe(
         catchError(this.errorHandler)
       );
   }
 
   update(id, user): Observable<User> {
-    return this.httpClient.put<User>(baseURL + '/users/' + id, JSON.stringify(user), this.httpOptions)
+    return this.httpClient.put<User>(baseURL  + id, JSON.stringify(user), this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       );
@@ -51,7 +51,7 @@ export class UserService {
 
   // tslint:disable-next-line:typedef
   delete(id) {
-    return this.httpClient.delete<User>(baseURL + '/users/' + id, this.httpOptions)
+    return this.httpClient.delete<User>(baseURL  + id, this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       );

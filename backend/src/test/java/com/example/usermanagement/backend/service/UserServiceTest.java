@@ -1,6 +1,7 @@
 package com.example.usermanagement.backend.service;
 
 import com.example.usermanagement.backend.domain.User;
+import org.checkerframework.checker.units.qual.A;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,6 +10,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
@@ -20,7 +22,7 @@ public class UserServiceTest {
     private UserService userService;
 
     @Test
-    public void createUser_Success() {
+    public void createUserSuccessfully() {
 
         User user = new User();
         user.setId(1);
@@ -36,21 +38,8 @@ public class UserServiceTest {
 
     }
 
-    @Test(expected = javax.validation.ConstraintViolationException.class)
-    public void createUser_Name_IsNotSet_Fail() {
-        User user = new User();
-        user.setId(1);
-        user.setLastName("Brandan");
-        userService.createUser(user);
-
-        List<User> dbUsers = userService.getUsers();
-
-        Assert.assertEquals(0, dbUsers.size());
-
-    }
-
     @Test
-    public void getUser_Success() {
+    public void getUserSuccessfully() {
 
         User user = new User();
         user.setId(1);
@@ -58,11 +47,66 @@ public class UserServiceTest {
         user.setLastName("Brandan");
         userService.createUser(user);
 
-        User dbUser = userService.getUserById(user.getId());
+        User dbUser = userService.findUserById(user.getId());
 
         Assert.assertNotNull(dbUser);
         Assert.assertEquals(user.getFirstName(), dbUser.getFirstName());
         Assert.assertEquals(user.getLastName(), dbUser.getLastName());
 
     }
+
+    @Test(expected = EntityNotFoundException.class)
+    public void getUserShouldFailWhenUserNotExist() {
+        userService.findUserById(1);
+    }
+
+    @Test
+    public void updateUserSuccessfully() {
+
+        User user = new User();
+        user.setId(1);
+        user.setFirstName("James");
+        user.setLastName("Brandan");
+        userService.createUser(user);
+
+        user.setFirstName("Tom");
+        user.setLastName("Hombergs");
+        userService.updateUser(user);
+        User dbUserAfterUpdate = userService.findUserById(user.getId());
+
+        Assert.assertEquals(user.getFirstName(), dbUserAfterUpdate.getFirstName());
+        Assert.assertEquals(user.getLastName(), dbUserAfterUpdate.getLastName());
+
+    }
+
+    @Test(expected = EntityNotFoundException.class)
+    public void updatingShouldFailWhenIdNotExist() {
+        User user = new User();
+        user.setId(1);
+
+        userService.updateUser(user);
+
+    }
+
+    @Test
+    public void deleteUserSuccessfully() {
+
+        User user = new User();
+        user.setId(1);
+        user.setFirstName("James");
+        user.setLastName("Brandan");
+       User createdUser=  userService.createUser(user);
+
+        userService.deleteUserById(user.getId());
+        List<User> userList = userService.getUsers();
+
+        Assert.assertNotNull(createdUser);
+        Assert.assertEquals(userList.size(),0);
+    }
+
+  
+
+
+
+
 }

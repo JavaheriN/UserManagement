@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api/v1/users")
 @CrossOrigin
 public class UserController {
 
@@ -17,7 +17,7 @@ public class UserController {
 
     @GetMapping("/{id}")
     public User getUser(@PathVariable int id) {
-        return userService.getUserById(id);
+        return userService.findUserById(id);
     }
 
     @GetMapping
@@ -32,7 +32,8 @@ public class UserController {
 
     @PutMapping("/{id}")
     public void update(@PathVariable int id, @RequestBody User user) {
-        userService.updateUser(id, user);
+        user.setId(id);
+        userService.updateUser(user);
     }
 
     @DeleteMapping("/{id}")
