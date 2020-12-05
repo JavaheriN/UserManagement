@@ -22,7 +22,7 @@ public class UserServiceTest {
     private UserService userService;
 
     @Test
-    public void createUserSuccessfully() {
+    public void shouldCreateUserSuccessfully() {
 
         User user = new User();
         user.setId(1);
@@ -39,7 +39,7 @@ public class UserServiceTest {
     }
 
     @Test
-    public void getUserSuccessfully() {
+    public void shouldGetUserSuccessfully() {
 
         User user = new User();
         user.setId(1);
@@ -61,7 +61,7 @@ public class UserServiceTest {
     }
 
     @Test
-    public void updateUserSuccessfully() {
+    public void shouldUpdateUserSuccessfully() {
 
         User user = new User();
         user.setId(1);
@@ -89,7 +89,7 @@ public class UserServiceTest {
     }
 
     @Test
-    public void deleteUserSuccessfully() {
+    public void shouldDeleteUserSuccessfully() {
 
         User user = new User();
         user.setId(1);
@@ -104,7 +104,7 @@ public class UserServiceTest {
         Assert.assertEquals(userList.size(),0);
     }
 
-  
+
 
 
 
